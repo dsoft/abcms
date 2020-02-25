@@ -7,9 +7,9 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\FrontendAsset;
+use app\assets\BackendAsset;
 
-FrontendAsset::register($this);
+BackendAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -28,17 +28,31 @@ FrontendAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => Yii::$app->name . ' - Admin',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $adminModule = 'admin';
+    $items = [
+            ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+            Yii::$app->user->isGuest ? (
+                ['label' => 'Login', 'url' => ["/$adminModule/default/login"]]
+            ) : (
+                '<li>'
+                . Html::beginForm(["/$adminModule/default/logout"], 'post')
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                . '</li>'
+            )
+        ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-        ],
+        'items' => $items,
     ]);
     NavBar::end();
     ?>
