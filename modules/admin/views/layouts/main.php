@@ -37,6 +37,7 @@ BackendAsset::register($this);
     $adminModule = 'admin';
     $items = [
             ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+            ['label' => 'Structures', 'url' => ["/$adminModule/structure/default/index"], 'visible' => !Yii::$app->user->isGuest],    
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ["/$adminModule/default/login"]]
             ) : (

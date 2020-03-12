@@ -44,6 +44,14 @@ $config = [
                 ],
             ],
         ],
+        'i18n' => [
+        'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                ],
+            ],
+        ],
         'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -55,6 +63,11 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => 'app\modules\admin\Module',
+            'modules' => [
+                'structure' => [
+                    'class' => 'abcms\structure\module\Module',
+                ],
+            ],
         ],
     ],
     'params' => $params,
