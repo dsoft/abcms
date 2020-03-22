@@ -34,6 +34,7 @@ $config = [
             'migrationNamespaces' => [
                 'abcms\library\migrations',
                 'abcms\structure\migrations',
+                'abcms\cms\migrations',
             ],
         ],
     ],

@@ -67,6 +67,10 @@ $config = [
                 'structure' => [
                     'class' => 'abcms\structure\module\Module',
                 ],
+                'cms' => [
+                    'class' => 'abcms\cms\module\Module',
+                    'structureRoute' => '/admin/structure/',
+                ],
             ],
         ],
     ],

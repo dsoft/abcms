@@ -113,3 +113,11 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+div.required label:after {
+    content: " *";
+    color: red;
+}
+.site-login div.required label:after{
+    content: "";
+}
