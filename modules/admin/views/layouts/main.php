@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\BackendAsset;
+use app\widgets\Alert;
 
 BackendAsset::register($this);
 ?>
@@ -36,10 +37,9 @@ BackendAsset::register($this);
     ]);
     $adminModule = 'admin';
     $items = [
-            ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+            ['label' => 'Pages', 'url' => ["/$adminModule/cms/page/index"], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Lists', 'url' => ["/$adminModule/cms/list/index"], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Content Types', 'url' => ["/$adminModule/cms/content-type/index"], 'visible' => !Yii::$app->user->isGuest],
-            ['label' => 'Structures', 'url' => ["/$adminModule/structure/default/index"], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ["/$adminModule/default/login"]]
             ) : (
@@ -64,6 +64,7 @@ BackendAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
+        <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>
