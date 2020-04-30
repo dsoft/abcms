@@ -6,8 +6,10 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'abcms',
     'name' => 'My Application',
+    'language' => 'en',
+    'sourceLanguage' => 'en',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'multilanguage'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -54,10 +56,15 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
+            'class' => abcms\multilanguage\UrlManager::className(),
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<lang:([a-z]{2,3}(-[A-Z]{2})?)>/<controller>/<action>/' => '<controller>/<action>',
             ],
+        ],
+        'multilanguage' => [
+            'class' => 'abcms\multilanguage\MultilanguageDb',
         ],
     ],
     'modules' => [
@@ -70,6 +77,9 @@ $config = [
                 'cms' => [
                     'class' => 'abcms\cms\module\Module',
                     'structureRoute' => '/admin/structure/',
+                ],
+                'multilanguage' => [
+                    'class' => 'abcms\multilanguage\module\Module',
                 ],
             ],
         ],

@@ -40,6 +40,7 @@ BackendAsset::register($this);
             ['label' => 'Pages', 'url' => ["/$adminModule/cms/page/index"], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Lists', 'url' => ["/$adminModule/cms/list/index"], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Content Types', 'url' => ["/$adminModule/cms/content-type/index"], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Languages', 'url' => ["/$adminModule/multilanguage/language/index"], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ["/$adminModule/default/login"]]
             ) : (

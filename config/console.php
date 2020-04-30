@@ -35,6 +35,7 @@ $config = [
                 'abcms\library\migrations',
                 'abcms\structure\migrations',
                 'abcms\cms\migrations',
+                'abcms\multilanguage\migrations',
             ],
         ],
     ],
