@@ -41,11 +41,13 @@ BackendAsset::register($this);
             ['label' => 'Lists', 'url' => ["/$adminModule/cms/list/index"], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Content Types', 'url' => ["/$adminModule/cms/content-type/index"], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Languages', 'url' => ["/$adminModule/multilanguage/language/index"], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Admins', 'url' => ["/$adminModule/admin-user/manage/index"], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Update Profile', 'url' => ["/$adminModule/admin-user/user/update"], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ["/$adminModule/default/login"]]
+                ['label' => 'Login', 'url' => ["/$adminModule/admin-user/user/login"]]
             ) : (
                 '<li>'
-                . Html::beginForm(["/$adminModule/default/logout"], 'post')
+                . Html::beginForm(["/$adminModule/admin-user/user/logout"], 'post')
                 . Html::submitButton(
                     'Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']

@@ -17,7 +17,8 @@
         "abcms/yii2-library": "dev-master",
         "abcms/yii2-structure": "dev-master",
         "abcms/yii2-cms": "dev-master",
-        "abcms/yii2-multilanguage": "dev-master"
+        "abcms/yii2-multilanguage": "dev-master",
+        "abcms/yii2-admin": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

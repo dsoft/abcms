@@ -23,9 +23,9 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'abcms\admin\models\Admin',
             'enableAutoLogin' => true,
-            'loginUrl' => ['/admin/default/login'],
+            'loginUrl' => ['/admin/admin-user/user/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -80,6 +80,9 @@ $config = [
                 ],
                 'multilanguage' => [
                     'class' => 'abcms\multilanguage\module\Module',
+                ],
+                'admin-user' => [
+                    'class' => 'abcms\admin\module\Module',
                 ],
             ],
         ],
